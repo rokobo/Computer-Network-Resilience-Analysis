@@ -22,7 +22,9 @@ In the next three problems, we will consider attack orders in which the nodes be
 Observe that targeted_order continuously updates ugraph and always computes a node of maximum degree with respect to this updated graph. The output of targeted_order is a sequence of nodes that can be used as input to compute_resilience.
 
 As you examine the code for targeted_order, you feel that the provided implementation of is not as efficient as possible. In particular, much work is being repeated during the location of nodes with the maximum degree. In this question, we will consider an alternative method (which we will refer to as fast_targeted_order) for computing the same targeted attack order. Here is a pseudo-code description of the method:
-![FTO algorithm](https://github.com/rokobo/Computer-Network-Resilience-Analysis/blob/master/Data/Fast%20Targeted%20Order%20Algorithm.png?raw=true)
+
+![FTO algorithm](https://github.com/rokobo/Computer-Network-Resilience-Analysis/blob/main/Data/Fast%20Targeted%20Order%20Algorithm.png?raw=true)
+
 In Python, this method creates a list degree_sets whose *k*th element is the set of nodes of degree k. The method then iterates through the list degree_sets in order of decreasing degree. When it encounters a non-empty set, the nodes in this set must be of maximum degree. The method then repeatedly chooses a node from this set, deletes that node from the graph, and updates degree_sets appropriately.
 
 For this question, your task is to implement fast_targeted_order() and then analyze the running time of these two methods on UPA graphs of size n with m=5. Your analysis should be both mathematical and empirical and include the following:
